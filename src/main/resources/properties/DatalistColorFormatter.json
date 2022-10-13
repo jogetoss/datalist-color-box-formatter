@@ -1,0 +1,64 @@
+[
+    {
+        "title" : "@@org.joget.marketplace.DatalistColorFormatter.config@@",
+        "properties":[
+            {
+                "name" : "optionsBinder",
+                "label" : "@@org.joget.marketplace.DatalistColorFormatter.chooseOptionsBinder@@",
+                "type" : "elementselect",
+                "options_ajax" : "[CONTEXT_PATH]/web/property/json/getElements?classname=org.joget.apps.form.model.FormLoadOptionsBinder",
+                "url" : "[CONTEXT_PATH]/web/property/json[APP_PATH]/getPropertyOptions",
+                "required":"True"
+            },
+            {
+                "name" : "DefaultBackgroundColor",
+                "label" : "@@org.joget.marketplace.DatalistColorFormatter.defaultBackgroundColor@@",
+                "type" : "Color",
+                "value" : "#000000"
+            },
+            {
+                "name" : "DefaultFontColor",
+                "label" : "@@org.joget.marketplace.DatalistColorFormatter.defaultFontColor@@",
+                "type" : "Color",
+                "value" : "#ffffff"
+            },
+            {
+                "name" : "DefaultFontHorizontalAlignment",
+                "label" : "@@org.joget.marketplace.DatalistColorFormatter.defaultFontHorizontalAlignment@@",
+                "type" : "SelectBox",
+                "options" : [{"value": "center", "label" : "Center(Default)"},
+                            {"value": "left", "label" : "Left"},
+                            {"value": "right", "label" : "Right"},
+                            {"value": "justify", "label" : "Justify"}]
+            },
+            {
+                "name" : "DefaultFontVerticalAlignment",
+                "label" : "@@org.joget.marketplace.DatalistColorFormatter.defaultFontVerticalAlignment@@",
+                "type" : "SelectBox",
+                "options" : [{"value": "baseline", "label" : "Baseline(Default)"},
+                            {"value": "text-top", "label" : "Top"},
+                            {"value": "text-bottom", "label" : "Bottom"},
+                            {"value": "sub", "label" : "Sub"},
+                            {"value": "super", "label" : "Super"}]
+            },
+            {
+                "name" : "DefaultPadding",
+                "label" : "@@org.joget.marketplace.DatalistColorFormatter.defaultPadding@@",
+                "type" : "Number",
+                "value" : "5"
+            },
+            {
+                "name" : "DefaultBorderRadius",
+                "label" : "@@org.joget.marketplace.DatalistColorFormatter.defaultBorderRadius@@",
+                "type" : "Number",
+                "value" : "5"
+            },
+            {
+                "name" : "DefaultMargin",
+                "label" : "@@org.joget.marketplace.DatalistColorFormatter.defaultMargin@@",
+                "type" : "Number",
+                "value" : "5"
+            }
+        ]
+    }
+]
