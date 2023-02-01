@@ -2,8 +2,7 @@
 
 The datalist color formatter construct a color box by performing a lookup using options binder. When configuring, please use "grouping" to return the desired background color for the box.
 
-![status](https://user-images.githubusercontent.com/70784722/216064310-f5113c56-92d9-4597-ae84-98339ef9eb6a.png)
-
+![216064310-f5113c56-92d9-4597-ae84-98339ef9eb6a](https://user-images.githubusercontent.com/70784722/216065970-48b4684b-8e88-4e7a-8179-9c2f1fb0c070.jpeg)
 
 # Getting Help
 
