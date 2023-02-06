@@ -20,12 +20,12 @@ public class DatalistColorFormatter extends DataListColumnFormatDefault {
     
     @Override
     public String getName() {
-        return "Datalist Color Formatter";
+        return AppPluginUtil.getMessage("org.joget.marketplace.DatalistColorFormatter.pluginName", getClassName(), MESSAGE_PATH);
     }
     
     @Override
     public String getVersion() {
-        return "7.0.0";
+        return "7.0.1";
     }
 
     @Override
@@ -52,20 +52,28 @@ public class DatalistColorFormatter extends DataListColumnFormatDefault {
     public String format(DataList dataList, DataListColumn column, Object row, Object value) {
         String result = "";
         
-        //calling defaults settings from the user/json file
-        String defaultBackgroundColor = getPropertyString("DefaultBackgroundColor");
-        String defaultFontColor = getPropertyString("DefaultFontColor");
-        String defaultFontHorizontalAlignment = getPropertyString("DefaultFontHorizontalAlignment");
-        String defaultFontVerticalAlignment = getPropertyString("DefaultFontVerticalAlignment");
-        String defaultPadding = getPropertyString("DefaultPadding");
-        String defaultBorderRadius = getPropertyString("DefaultBorderRadius");
-        String defaultMargin = getPropertyString("DefaultMargin");
+        String BackgroundColor = getPropertyString("BackgroundColor");
+        String FontColor = getPropertyString("FontColor");
+        String FontHorizontalAlignment = getPropertyString("FontHorizontalAlignment");
+        String FontVerticalAlignment = getPropertyString("FontVerticalAlignment");
+        String Padding = getPropertyString("Padding");
+        String BorderRadius = getPropertyString("BorderRadius");
+        String Margin = getPropertyString("Margin");
+        String Width = getPropertyString("Width");
         
         HttpServletRequest request = WorkflowUtil.getHttpServletRequest();
         
         if (request != null && request.getAttribute(getClassName()) == null) {
-        String html = ".colorFormatterDiv{" + "color:" + defaultFontColor + ";" + "border-radius:" + defaultBorderRadius + "px" + ";" + "margin:" + defaultMargin + "px" + ";" + "margin-top:" + "15" + "px" + ";" + "margin-bottom:" + "15" + "px" + ";" + "padding:" + defaultPadding + "px" + ";" + "text-align:" + defaultFontHorizontalAlignment + ";" + "vertical-align:" + defaultFontVerticalAlignment + ";" + "white-space: nowrap" + ";" + "display:" + "inline-block"+ ";" + "}";
-        html = "<style type=\'text/css\'>" + html + "</style>";
+            String html = ".colorFormatterDiv{" + "color:" + FontColor + ";" 
+                        + "border-radius:" + BorderRadius + "px" 
+                        + ";" + "margin:" + Margin + "px" + ";" 
+                        + "padding:" + Padding + "px" + ";" 
+                        + "text-align:" + FontHorizontalAlignment + ";" 
+                        + "vertical-align:" + FontVerticalAlignment + ";" 
+                        + "white-space: nowrap" + ";" 
+                        + "width:" + Width + ";"
+                        + "display:" + "inline-block"+ ";" + "}";
+            html = "<style type=\'text/css\'>" + html + "</style>";
             result += html;
         }
         
@@ -89,7 +97,7 @@ public class DatalistColorFormatter extends DataListColumnFormatDefault {
                             if(v.equalsIgnoreCase(optionId)){
                                 found = true;
                                 if(optionColor.isEmpty()){
-                                    optionColor = defaultBackgroundColor;
+                                    optionColor = BackgroundColor;
                                 }
                                 result += "<div class =\"colorFormatterDiv\" style=\"" +"background-color:"+ optionColor + ";" + "\">" + optionLabel + "</div>";
                             }
@@ -98,7 +106,7 @@ public class DatalistColorFormatter extends DataListColumnFormatDefault {
                         request.setAttribute(getClassName(), true);
                     }
                     if(!found){
-                        result += "<div class =\"colorFormatterDiv\" style=\"" +"background-color:"+ defaultBackgroundColor + ";" + "\">" + value + "</div>";
+                        result += "<div class =\"colorFormatterDiv\" style=\"" +"background-color:"+ BackgroundColor + ";" + "\">" + value + "</div>";
                     }
                 }
             }

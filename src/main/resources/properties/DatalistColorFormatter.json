@@ -3,6 +3,11 @@
         "title" : "@@org.joget.marketplace.DatalistColorFormatter.config@@",
         "properties":[
             {
+                "label" : "@@org.joget.marketplace.DatalistColorFormatter.configureData@@",
+                "type" : "header",
+                "description" : "@@org.joget.marketplace.DatalistColorFormatter.configureData.desc@@"
+            },
+            {
                 "name" : "optionsBinder",
                 "label" : "@@org.joget.marketplace.DatalistColorFormatter.chooseOptionsBinder@@",
                 "type" : "elementselect",
@@ -11,53 +16,63 @@
                 "required":"True"
             },
             {
-                "name" : "DefaultBackgroundColor",
-                "label" : "@@org.joget.marketplace.DatalistColorFormatter.defaultBackgroundColor@@",
+                "label" : "@@org.joget.marketplace.DatalistColorFormatter.configureUI@@",
+                "type" : "header"
+            },
+            {
+                "name" : "BackgroundColor",
+                "label" : "@@org.joget.marketplace.DatalistColorFormatter.BackgroundColor@@",
                 "type" : "Color",
                 "value" : "#000000"
             },
             {
-                "name" : "DefaultFontColor",
-                "label" : "@@org.joget.marketplace.DatalistColorFormatter.defaultFontColor@@",
+                "name" : "FontColor",
+                "label" : "@@org.joget.marketplace.DatalistColorFormatter.FontColor@@",
                 "type" : "Color",
                 "value" : "#ffffff"
             },
             {
-                "name" : "DefaultFontHorizontalAlignment",
-                "label" : "@@org.joget.marketplace.DatalistColorFormatter.defaultFontHorizontalAlignment@@",
+                "name" : "FontHorizontalAlignment",
+                "label" : "@@org.joget.marketplace.DatalistColorFormatter.FontHorizontalAlignment@@",
                 "type" : "SelectBox",
-                "options" : [{"value": "center", "label" : "Center(Default)"},
+                "options" : [{"value": "center", "label" : "Center (Default)"},
                             {"value": "left", "label" : "Left"},
                             {"value": "right", "label" : "Right"},
                             {"value": "justify", "label" : "Justify"}]
             },
             {
-                "name" : "DefaultFontVerticalAlignment",
-                "label" : "@@org.joget.marketplace.DatalistColorFormatter.defaultFontVerticalAlignment@@",
+                "name" : "FontVerticalAlignment",
+                "label" : "@@org.joget.marketplace.DatalistColorFormatter.FontVerticalAlignment@@",
                 "type" : "SelectBox",
-                "options" : [{"value": "baseline", "label" : "Baseline(Default)"},
+                "options" : [{"value": "baseline", "label" : "Baseline (Default)"},
                             {"value": "text-top", "label" : "Top"},
                             {"value": "text-bottom", "label" : "Bottom"},
                             {"value": "sub", "label" : "Sub"},
                             {"value": "super", "label" : "Super"}]
             },
             {
-                "name" : "DefaultPadding",
-                "label" : "@@org.joget.marketplace.DatalistColorFormatter.defaultPadding@@",
+                "name" : "Padding",
+                "label" : "@@org.joget.marketplace.DatalistColorFormatter.Padding@@",
                 "type" : "Number",
                 "value" : "5"
             },
             {
-                "name" : "DefaultBorderRadius",
-                "label" : "@@org.joget.marketplace.DatalistColorFormatter.defaultBorderRadius@@",
+                "name" : "BorderRadius",
+                "label" : "@@org.joget.marketplace.DatalistColorFormatter.BorderRadius@@",
                 "type" : "Number",
                 "value" : "5"
             },
             {
-                "name" : "DefaultMargin",
-                "label" : "@@org.joget.marketplace.DatalistColorFormatter.defaultMargin@@",
+                "name" : "Margin",
+                "label" : "@@org.joget.marketplace.DatalistColorFormatter.Margin@@",
                 "type" : "Number",
-                "value" : "5"
+                "value" : "0"
+            },
+            {
+                "name" : "Width",
+                "label" : "@@org.joget.marketplace.DatalistColorFormatter.width@@",
+                "type" : "textfield",
+                "value" : "100%"
             }
         ]
     }
