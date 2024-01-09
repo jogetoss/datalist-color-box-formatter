@@ -25,7 +25,7 @@ public class DatalistColorFormatter extends DataListColumnFormatDefault {
     
     @Override
     public String getVersion() {
-        return "7.0.1";
+        return "7.0.2";
     }
 
     @Override
@@ -50,8 +50,10 @@ public class DatalistColorFormatter extends DataListColumnFormatDefault {
     
     @Override
     public String format(DataList dataList, DataListColumn column, Object row, Object value) {
-        String result = "";
-        
+        String result = (String)value;
+  
+        if (result != null && !result.isEmpty()) {
+        result = "";
         String BackgroundColor = getPropertyString("BackgroundColor");
         String FontColor = getPropertyString("FontColor");
         String FontHorizontalAlignment = getPropertyString("FontHorizontalAlignment");
@@ -60,23 +62,19 @@ public class DatalistColorFormatter extends DataListColumnFormatDefault {
         String BorderRadius = getPropertyString("BorderRadius");
         String Margin = getPropertyString("Margin");
         String Width = getPropertyString("Width");
-        
-        HttpServletRequest request = WorkflowUtil.getHttpServletRequest();
-        
-        if (request != null && request.getAttribute(getClassName()) == null) {
-            String html = ".colorFormatterDiv{" + "color:" + FontColor + ";" 
-                        + "border-radius:" + BorderRadius + "px" 
-                        + ";" + "margin:" + Margin + "px" + ";" 
-                        + "padding:" + Padding + "px" + ";" 
-                        + "text-align:" + FontHorizontalAlignment + ";" 
-                        + "vertical-align:" + FontVerticalAlignment + ";" 
-                        + "white-space: nowrap" + ";" 
-                        + "width:" + Width + ";"
-                        + "display:" + "inline-block"+ ";" + "}";
-            html = "<style type=\'text/css\'>" + html + "</style>";
-            result += html;
-        }
-        
+
+        String html = ".colorFormatterDiv" + column.getName() + "{" + "color:" + FontColor + ";"
+                + "border-radius:" + BorderRadius + "px"
+                + ";" + "margin:" + Margin + "px" + ";"
+                + "padding:" + Padding + "px" + ";"
+                + "text-align:" + FontHorizontalAlignment + ";"
+                + "vertical-align:" + FontVerticalAlignment + ";"
+                + "white-space: nowrap" + ";"
+                + "width:" + Width + ";"
+                + "display:" + "inline-block" + ";" + "}";
+        html = "<style type=\'text/css\'>" + html + "</style>";
+        result += html;
+
         Map optionsBinderProperties = (Map) getProperty("optionsBinder");
             if (optionsBinderProperties != null && optionsBinderProperties.get("className") != null && !optionsBinderProperties.get("className").toString().isEmpty()) {
                 PluginManager pluginManager = (PluginManager) AppUtil.getApplicationContext().getBean("pluginManager");
@@ -99,17 +97,16 @@ public class DatalistColorFormatter extends DataListColumnFormatDefault {
                                 if(optionColor.isEmpty()){
                                     optionColor = BackgroundColor;
                                 }
-                                result += "<div class =\"colorFormatterDiv\" style=\"" +"background-color:"+ optionColor + ";" + "\">" + optionLabel + "</div>";
+                                result += "<div class =\"colorFormatterDiv" + column.getName() + "\" style=\"" +"background-color:"+ optionColor + ";" + "\">" + optionLabel + "</div>";
                             }
                         }
-                        
-                        request.setAttribute(getClassName(), true);
                     }
                     if(!found){
-                        result += "<div class =\"colorFormatterDiv\" style=\"" +"background-color:"+ BackgroundColor + ";" + "\">" + value + "</div>";
+                        result += "<div class =\"colorFormatterDiv" + column.getName() + "\" style=\"" +"background-color:"+ BackgroundColor + ";" + "\">" + value + "</div>";
                     }
                 }
             }
+        }
         return result;
     }
 }
